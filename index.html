@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Girlfriend? ❤️</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      text-align: center;
+      margin: 0;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff3366;
+      margin: 20px;
+    }
+    .buttons {
+      position: relative;
+      margin-top: 20px;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    #yesBtn {
+      background-color: #ff3366;
+      color: white;
+      margin: 10px;
+    }
+    #noBtn {
+      background-color: #333;
+      color: white;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      color: #333;
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      button {
+        font-size: 1.5rem;
+        padding: 16px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my girlfriend? 🥰</h1>
+  <div class="buttons">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+  <div id="message">Yay! I knew you’d say yes! 💕💍</div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+      document.querySelector(".buttons").style.display = "none";
+    });
+
+    // Move the "No" button when hovered or touched
+    function moveButton() {
+      const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+      const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+  </script>
+</body>
+</html>
